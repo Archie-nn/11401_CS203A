@@ -1,4 +1,4 @@
-#將vscode連接至github筆記
+# 將vscode連接至github筆記
 1. 開啟vscode，按下左側的「Source Control」圖示（或使用快捷鍵Ctrl+Shift+G）。
 2. 點擊「Clone Repository」按鈕。
 3. 在彈出的輸入框中，輸入你的GitHub repo URL，然後按下Enter鍵。

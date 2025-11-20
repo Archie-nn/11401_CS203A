@@ -11,7 +11,7 @@
    Development History:
     - 2025/11/11: Initial implementation
 
-   Developer: Yu-Feng Huang <yfhuang@saturn.yzu.edu.tw>
+   Developer: En-Chi Yang <s1133334@mail.yzu.edu.tw>
  */
 
 #include <stdio.h>

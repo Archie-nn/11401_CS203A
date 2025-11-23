@@ -19,27 +19,27 @@ Email: s1133334@mail.stu.yzu.tw
 - Rationale: [
 1. 使用 Knuth’s multiplicative constant (0x9e3779b9)
 
-這個常數來源於黃金比例，對於 hash 運算具有以下優點：
+   這個常數來源於黃金比例，對於 hash 運算具有以下優點：
 
-能使輸入 key 產生高度擴散（bit diffusion）
+   能使輸入 key 產生高度擴散（bit diffusion）
 
-相鄰 key（如 100、101、102）會被打散成看起來隨機的 index
+   相鄰 key（如 100、101、102）會被打散成看起來隨機的 index
 
-減少 clustering（集中在某些 index）
+   減少 clustering（集中在某些 index）
 
 2. 使用 XOR-shift 混合高低位元
 
-x ^= (x >> 16) 的作用是：
+   x ^= (x >> 16) 的作用是：
 
-將高位 bit 混合到低位
+   將高位 bit 混合到低位
 
-減少簡單乘法可能留下的規律性 pattern
+   減少簡單乘法可能留下的規律性 pattern
 
-增加 hash 的隨機性（更均勻）
+   增加 hash 的隨機性（更均勻）
 
 3. 最後使用 modulo m 映射到 table size
 
-x % m 是 division method，可與適當的 m 一起搭配達到良好效果。]
+   x % m 是 division method，可與適當的 m 一起搭配達到良好效果。]
 
 ### Non-integer Keys
 - Formula / pseudocode:
@@ -53,31 +53,27 @@ x % m 是 division method，可與適當的 m 一起搭配達到良好效果。]
 - Rationale: [
 1. Polynomial Rolling Hash（底數 131）
 
-此方法是字串 hash 的標準作法，具有：
+   此方法是字串 hash 的標準作法，具有：
 
-對不同字串敏感（例如 "abc" 和 "acb" 結果差很多）
+   對不同字串敏感（例如 "abc" 和 "acb" 結果差很多）
 
-常用在字典、hash table 與字串比對演算法（KMP、Rabin-Karp）
+   常用在字典、hash table 與字串比對演算法（KMP、Rabin-Karp）
 
-底數選擇 131 的理由：
+   底數選擇 131 的理由：
 
-131 是常見的質數底數（C++ unordered_map 中也採用類似方法）
+   131 是常見的質數底數（C++ unordered_map 中也採用類似方法）
 
-能夠避免許多字串輸入產生規律性碰撞
+   能夠避免許多字串輸入產生規律性碰撞
 
 2. XOR-shift mixing
 
-hash ^= (hash >> 16); 能夠：
+   hash ^= (hash >> 16); 能夠：
 
-將 hash 的高位與低位打散
-
-增加隨機感
-
-減少字串結構導致的碰撞（例如 "AAA" vs "AAB" vs "AAC"）
+   將 hash 的高位與低位打散增加隨機感減少字串結構導致的碰撞（例如 "AAA" vs "AAB" vs "AAC"）
 
 3. 最後使用 mod m
 
-確保輸出仍然落在 0 ~ m-1 的 index 範圍。]
+   確保輸出仍然落在 0 ~ m-1 的 index 範圍。]
 
 ## Experimental Setup
 - Table sizes tested (m): 10, 11, 37

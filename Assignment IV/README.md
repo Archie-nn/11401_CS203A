@@ -12,11 +12,12 @@ Email: s1133334@mail.stu.yzu.tw
 - Formula / pseudocode:
 ```text
  [x = unsigned(key)        // Avoid negative values
-    x = x * 0x9e3779b9       // Knuth multiplicative hashing constant
-    x = x XOR (x >> 16)      // Mix high and low bits
-    return x mod m           // Map to 0...(m-1)]
+  x = x * 0x9e3779b9       // Knuth multiplicative hashing constant
+  x = x XOR (x >> 16)      // Mix high and low bits
+  return x mod m           // Map to 0...(m-1)]
  ```
-- Rationale: [1. 使用 Knuth’s multiplicative constant (0x9e3779b9)
+- Rationale: [
+1. 使用 Knuth’s multiplicative constant (0x9e3779b9)
 
 這個常數來源於黃金比例，對於 hash 運算具有以下優點：
 
@@ -44,12 +45,13 @@ x % m 是 division method，可與適當的 m 一起搭配達到良好效果。]
 - Formula / pseudocode:
 ```text
  [hash = 0
-    for each character c in str:
-        hash = hash * 131 + ASCII(c)   // Polynomial rolling hash
-        hash = hash XOR (hash >> 16)   // Bit mixing
-    return hash mod m]
+  for each character c in str:
+  hash = hash * 131 + ASCII(c)   // Polynomial rolling hash
+  hash = hash XOR (hash >> 16)   // Bit mixing
+  return hash mod m]
  ```
-- Rationale: [1. Polynomial Rolling Hash（底數 131）
+- Rationale: [
+1. Polynomial Rolling Hash（底數 131）
 
 此方法是字串 hash 的標準作法，具有：
 

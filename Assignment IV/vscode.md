@@ -1,35 +1,47 @@
-# 將vscode連接至github筆記
-1. 開啟vscode，按下左側的「Source Control」圖示（或使用快捷鍵Ctrl+Shift+G）。
-2. 點擊「Clone Repository」按鈕。
-3. 在彈出的輸入框中，輸入你的GitHub repo URL，然後按下Enter鍵。
-4. 選擇本地文件夾來存儲clone的repo。
-5. Clone完成後，vscode會提示你是否打開該倉庫，選擇「Open」。
-6. 現在，你可以在vscode中編輯文件，並使用「Source Control」面板來提交和推送更改到GitHub。
-7. 要提交更改，輸入提交信息(若未輸入信息，會導致無法儲存變更)，然後點擊「✔️」按鈕。
-8. 要推送更改到GitHub，點擊「...」按鈕，然後選擇「Push」。
-9. 如果是第一次推送，可能需要輸入你的GitHub憑據。
-10. 完成後，你的更改將會同步到GitHub倉庫中。
+# Notes on Connecting VS Code to GitHub
+1. Open VS Code and click the Source Control icon on the left (or press Ctrl + Shift + G).
 
-# vscode上執行程式碼困難與解決方案
-##困難:
-1. 因使用筆電環境配置與學校電腦不同，導致無法直接執行程式碼。
-2. 缺少必要的編譯器或執行環境設定。
-3. 對於terminal指令不熟悉，無法順利找到輸入指令的正確位置。
+2. Click the Clone Repository button.
 
-##解決方案:
-1. 安裝必要的編譯器，利用chatgpt 推薦下載mingw32，並裡面輸入指令下載如GCC（C/C++）編譯器。
+3. In the pop-up input box, enter your GitHub repository URL, then press Enter.
+
+4. Choose a local folder to store the cloned repository.
+
+5. After cloning, VS Code will ask whether you want to open the repository — select Open.
+
+6. Now you can edit files in VS Code and use the Source Control panel to commit and push changes to GitHub.
+
+7. To commit changes, enter a commit message (if you leave it empty, the commit will fail), then click the ✔️ button.
+
+8. To push your changes to GitHub, click the … menu and select Push.
+
+9. If this is your first time pushing, VS Code may ask for your GitHub credentials.
+
+10. Once complete, your changes will be synchronized to your GitHub repository.
+
+# Difficulties and Solutions When Running Code in VS Code
+## Difficulties:
+1. Since the environment on my laptop differs from the one at school, programs could not be executed directly.
+
+2. Missing required compilers or runtime configurations prevented code from compiling.
+
+3. Lack of familiarity with terminal commands made it difficult to know where to correctly input instructions.
+
+## Solutions:
+1. nstalled the necessary compilers. Following ChatGPT’s recommendation, 
+   I installed MinGW/MSYS2 and used terminal commands to install GCC (C/C++ compiler):
 ```text
    pacman -S mingw-w64-x86_64-gcc
    pacman -S mingw-w64-x86_64-gdb
    pacman -S mingw-w64-x86_64-make
    pacman -S mingw-w64-ucrt-x86_64-toolchain
 ```
-2. 在環境變數視窗中，將編譯器的bin資料夾路徑加入Path中。
-3. 在vscode中的terminal視窗中，使用指令編譯與執行程式碼。例如:
+2. Added the compiler’s bin directory to the system PATH in the Environment Variables settings.
+3. Used the integrated terminal in VS Code to compile and run programs. For example:
 ```text
    mingw32-make c/cxx
    cd "c/cxx"
    ./hash_fn.exe
    ./hash_fn_cpp.exe
 ```
-4. 參考README.md中的指令，確保每一步驟都正確無誤地執行。
+4. Followed the instructions provided in README.md to ensure each step was executed correctly and without mistakes.

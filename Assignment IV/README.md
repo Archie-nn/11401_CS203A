@@ -346,7 +346,8 @@ bee     17
 hen     21
 pig     10
 fox     9
-
+```
+```
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
 - Example output for integers:
 ```

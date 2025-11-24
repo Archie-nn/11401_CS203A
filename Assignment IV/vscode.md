@@ -18,18 +18,18 @@
 
 解決方案:
 1. 安裝必要的編譯器，利用chatgpt 推薦下載mingw32，並裡面輸入指令下載如GCC（C/C++）編譯器。
-、、、text
+```text
    pacman -S mingw-w64-x86_64-gcc
    pacman -S mingw-w64-x86_64-gdb
    pacman -S mingw-w64-x86_64-make
    pacman -S mingw-w64-ucrt-x86_64-toolchain
-、、、text
+```
 2. 在環境變數視窗中，將編譯器的bin資料夾路徑加入Path中。
 3. 在vscode中的terminal視窗中，使用指令編譯與執行程式碼。例如:
-、、、text
+```text
    mingw32-make c/cxx
    cd "c/cxx"
    ./hash_fn.exe
    ./hash_fn_cpp.exe
-、、、text
+```
 4. 參考README.md中的指令，確保每一步驟都正確無誤地執行。

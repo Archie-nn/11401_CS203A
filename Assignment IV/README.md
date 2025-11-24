@@ -144,76 +144,237 @@ or
 ### Result Snapshot
 - Example output for integers:
 ```
- === Hash Function Observation (C Version) ===
+== Hash Function Observation (C Version) ===
 
- === Table Size m = 10 ===
- Key     Index
- -----------------
- 21      1
- 22      2
- ...
+=== Table Size m = 10 ===
+Key     Index
+-----------------
+21      7
+22      4
+23      2
+24      9
+25      3
+26      0
+27      8
+28      5
+29      9
+30      8
+51      6 
+52      0
+53      3
+54      7
+55      6
+56      0
+57      7
+58      9
+59      8
+60      4
 
- === Table Size m = 11 ===
- Key     Index
- -----------------
- 21      10
- 22      0
- ...
+=== Table Size m = 11 ===
+Key     Index
+-----------------
+21      5
+22      2
+23      2
+24      6
+25      5
+26      8
+27      3
+28      7
+29      5
+30      5
+51      3
+52      5
+53      7
+54      1
+55      7
+56      3
+57      5
+58      5
+59      3
+60      8
 
- === Table Size m = 37 ===
- Key     Index
- -----------------
- 21      21
- 22      22
- ...
+=== Table Size m = 37 ===
+Key     Index
+-----------------
+21      18
+22      17
+23      28
+24      23
+25      19
+26      21
+27      26
+28      0
+29      15
+30      14
+51      30
+52      5
+53      1
+54      18
+55      2
+56      0
+57      32
+58      33
+59      25
+60      12
 
- === Hash Function Observation (C++ Version) ===
+=== String Hash (m = 10) ===
+Key     Index
+-----------------
+cat     2
+dog     2
+bat     8
+cow     3
+ant     6
+owl     9
+bee     5
+hen     0
+pig     7
+fox     7
 
- === Table Size m = 10 ===
- Key     Index
- -----------------
- 21      1
- 22      2
- ...
+=== String Hash (m = 11) ===
+Key     Index
+-----------------
+cat     9
+dog     4
+bat     3
+cow     4
+ant     5
+owl     4
+bee     2
+hen     6
+pig     8
+fox     8
 
- === Table Size m = 11 ===
- Key     Index
- -----------------
- 21      10
- 22      0
- ...
+=== String Hash (m = 37) ===
+Key     Index
+-----------------
+cat     21
+dog     10
+bat     8
+cow     29
+ant     32
+owl     27
+bee     17
+hen     21
+pig     10
+fox     9
 
- === Table Size m = 37 ===
- Key     Index
- -----------------
- 21      21
- 22      22
- ...
- ```
+=== Hash Function Observation (C++ Version) ===
 
-- Example output for strings:
-```
- === String Hash (m = 10) ===
- Key     Index
- -----------------
- cat     0
- dog     0
- ...
+=== Table Size m = 10 ===
+Key     Index
+-----------------
+21      7
+22      4
+23      2
+24      9
+25      3
+26      0
+27      8
+28      5
+29      9
+30      8
+51      6
+52      0
+53      3
+54      7
+55      6
+56      0
+57      7
+58      9
+59      8
+60      4
 
- === String Hash (m = 11) ===
- Key     Index
- -----------------
- cat     0
- dog     0
- ...
+=== Table Size m = 11 ===
+Key     Index
+-----------------
+21      5
+22      2
+23      2
+24      6
+25      5
+26      8
+27      3
+28      7
+29      5
+30      5
+51      3
+52      5
+53      7
+54      1
+55      7
+56      3
+57      5
+58      5
+59      3
+60      8
 
- === String Hash (m = 37) ===
- Key     Index
- -----------------
- cat     0
- dog     0
- ...
- ```
+=== Table Size m = 37 ===
+Key     Index
+-----------------
+21      18
+22      17
+23      28
+24      23
+25      19
+26      21
+27      26
+28      0
+29      15
+30      14
+51      30
+52      5
+53      1
+54      18
+55      2
+56      0
+57      32
+58      33
+59      25
+60      12
+
+=== String Hash (m = 10) ===
+Key     Index
+-----------------
+cat     2
+dog     2
+bat     8
+cow     3
+ant     6
+owl     9
+bee     5
+hen     0
+pig     7
+fox     7
+
+=== String Hash (m = 11) ===
+Key     Index
+-----------------
+cat     9
+dog     4
+bat     3
+cow     4
+ant     5
+owl     4
+bee     2
+hen     6
+pig     8
+fox     8
+
+=== String Hash (m = 37) ===
+Key     Index
+-----------------
+cat     21
+dog     10
+bat     8
+cow     29
+ant     32
+owl     27
+bee     17
+hen     21
+pig     10
+fox     9
 
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
 - Example output for integers:

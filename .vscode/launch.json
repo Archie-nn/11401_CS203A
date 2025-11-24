@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": ".",
-      "program": "build/Debug/outDebug",
+      "cwd": "c:/Users/Archie Yang/Documents/作業用/Assignment IV/11401_CS203A/Assignment IV",
+      "program": "c:/Users/Archie Yang/Documents/作業用/Assignment IV/11401_CS203A/Assignment IV/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

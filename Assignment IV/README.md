@@ -373,6 +373,7 @@ Key   Index
 59    8
 60    4
 ]
+
 Hash table (m=11): [
 Key   Index
 21    5
@@ -396,6 +397,7 @@ Key   Index
 59    3
 60    8
 ]
+
 Hash table (m=37): [
 Key   Index
 21    18
@@ -434,6 +436,7 @@ hen  → 0
 pig  → 7
 fox  → 7
 ]
+
 Hash table (m=11): [
 cat  → 9
 dog  → 4
@@ -446,6 +449,7 @@ hen  → 6
 pig  → 8
 fox  → 8
 ]
+
 Hash table (m=37): [
 cat  → 21
 dog  → 10
@@ -460,7 +464,7 @@ fox  → 9
 ]
  ```
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
-
+ ```
 ## Analysis
 1. Distribution Quality: Prime vs. Non-Prime Table Sizes
 

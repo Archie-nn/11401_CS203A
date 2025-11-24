@@ -17,29 +17,14 @@ Email: s1133334@mail.stu.yzu.tw
   return x mod m           // Map to 0...(m-1)]
  ```
 - Rationale: [
-1. 使用 Knuth’s multiplicative constant (0x9e3779b9)
+1. Knuth’s Multiplicative Constant (0x9e3779b9)
+This constant, derived from the golden ratio, helps produce strong bit diffusion. Even consecutive integers (e.g., 100, 101, 102) are spread across seemingly unrelated hash indices, reducing clustering.
 
-   這個常數來源於黃金比例，對於 hash 運算具有以下優點：
+2. XOR-Shift Bit Mixing
+The operation x ^= (x >> 16) mixes high and low bits, removing regular patterns left by multiplication and improving randomness in the final hash value.
 
-   能使輸入 key 產生高度擴散（bit diffusion）
-
-   相鄰 key（如 100、101、102）會被打散成看起來隨機的 index
-
-   減少 clustering（集中在某些 index）
-
-2. 使用 XOR-shift 混合高低位元
-
-   x ^= (x >> 16) 的作用是：
-
-   將高位 bit 混合到低位
-
-   減少簡單乘法可能留下的規律性 pattern
-
-   增加 hash 的隨機性（更均勻）
-
-3. 最後使用 modulo m 映射到 table size
-
-   x % m 是 division method，可與適當的 m 一起搭配達到良好效果。]
+3. Modulo Operation for Table Mapping
+Applying x % m maps the result into the table range. When paired with a suitable (preferably prime) table size, it provides effective and stable index distribution.
 
 ### Non-integer Keys
 - Formula / pseudocode:
@@ -51,29 +36,15 @@ Email: s1133334@mail.stu.yzu.tw
   return hash mod m]
  ```
 - Rationale: [
-1. Polynomial Rolling Hash（底數 131）
+1. Polynomial Rolling Hash (Base 131)
+This method is a standard and effective approach for string hashing.
+The base 131 is commonly used because it is a prime number and provides good sensitivity—small changes in a string (e.g., "abc" vs. "acb") produce very different hash values. It also helps reduce structural collisions and is widely adopted in hash tables and string-matching algorithms.
 
-   此方法是字串 hash 的標準作法，具有：
+2. XOR-Shift Mixing
+The operation hash ^= (hash >> 16) mixes high and low bits, improves randomness, and reduces collisions caused by similar string patterns (e.g., "AAA", "AAB", "AAC").
 
-   對不同字串敏感（例如 "abc" 和 "acb" 結果差很多）
-
-   常用在字典、hash table 與字串比對演算法（KMP、Rabin-Karp）
-
-   底數選擇 131 的理由：
-
-   131 是常見的質數底數（C++ unordered_map 中也採用類似方法）
-
-   能夠避免許多字串輸入產生規律性碰撞
-
-2. XOR-shift mixing
-
-   hash ^= (hash >> 16); 能夠：
-
-   將 hash 的高位與低位打散增加隨機感減少字串結構導致的碰撞（例如 "AAA" vs "AAB" vs "AAC"）
-
-3. 最後使用 mod m
-
-   確保輸出仍然落在 0 ~ m-1 的 index 範圍。]
+3. Modulo Operation
+Applying hash % m ensures the final result is mapped into the valid index range 0 ~ m-1, completing the hash process effectively.
 
 ## Experimental Setup
 - Table sizes tested (m): 10, 11, 37

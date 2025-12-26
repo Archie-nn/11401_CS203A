@@ -6,7 +6,7 @@ Linked List: A linked list is a sequence of nodes stored in non-contiguously mem
 
 ## Visualization
 
-![Linked List](./images/LinkedList.png)
+![Linked List](./linkedlist.png)
 
 ## Abstract Data Type
 

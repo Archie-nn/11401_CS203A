@@ -79,3 +79,10 @@ Linked lists are well-suited for applications where frequent insertions and dele
 
 ---
 
+## Variations
+
+- **Singly Linked List**: Each node stores a value and a pointer to the next node (`next`). Traversal is one-way.
+- **Circular Linked List**: The last node points back to the first node (the `next` of the tail is the head). This is useful for round-robin scheduling and cyclic data processing. Circular lists can be singly or doubly linked.
+- **Doubly Linked List**: Each node stores pointers to both the previous and next nodes (`prev`, `next`), enabling bidirectional traversal. This can make deletions and insertions (given a node) easier, at the cost of extra memory and pointer maintenance.
+- **Circular Doubly Linked List**: A combination where `tail.next = head` and `head.prev = tail`, supporting efficient forward/backward cycling through nodes.
+

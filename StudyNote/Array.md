@@ -6,7 +6,7 @@ Array: A contiguous block of memory that stores elements of the same data type. 
 
 ## Visualization  
 
-![Array](./StudyNote/array.webg)
+![Array](./array.webp)
 
 ## Abstract Data Type
 

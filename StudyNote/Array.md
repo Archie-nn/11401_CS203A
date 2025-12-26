@@ -80,9 +80,6 @@ They are well-suited for scenarios where data size is fixed or when read operati
 
 However, insertion and deletion operations—especially at the beginning or middle of the array—are costly due to the need to shift elements, resulting in O(n) time complexity.
 
-For static datasets or read-heavy workloads, arrays combined with binary search are highly efficient.  
-For applications requiring frequent insertions and deletions, other data structures such as linked lists or trees may be more appropriate.
-
 ---
 
 

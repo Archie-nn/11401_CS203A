@@ -57,7 +57,13 @@ The stack ADT supports the following operations:
 - **Linked-list-based**
     - **O(n)** nodes.
     - Additional per-element pointer overhead (e.g., one `next` pointer per node).
- 
+| Aspect | Array-based Stack | Linked-list-based Stack |
+|-----|------------------|------------------------|
+| Element Storage | O(n) | O(n) |
+| Extra Overhead | Possible unused capacity | Pointer(s) per node |
+| Memory Layout | Contiguous | Non-contiguous |
+| Overall Space | O(n) | O(n) |
+
 ## Variations
 - **Array-based stack**: Uses a contiguous array and a `top` index (fast, cache-friendly).
 - **Linked-list stack**: Each node points to the next (no fixed capacity; extra pointer overhead).
@@ -66,3 +72,56 @@ The stack ADT supports the following operations:
 - **Two stacks in one array**: Grow two stacks from opposite ends to share capacity efficiently.
 - **Min/Max stack**: Supports `getMin()` / `getMax()` in **O(1)** using an auxiliary stack.
 - **Monotonic stack**: Maintains increasing/decreasing order; used for “next greater/smaller element” problems.
+
+## Practical Trade-offs
+
+### Array-based Stack
+**Advantages**
+- Better cache locality
+- Simple implementation
+- Lower per-element memory overhead
+
+**Disadvantages**
+- Resizing cost
+- Fixed capacity unless dynamic resizing is used
+
+### Linked-list-based Stack
+**Advantages**
+- No capacity limit
+- No resizing overhead
+- Guaranteed O(1) push and pop
+
+**Disadvantages**
+- Extra memory for pointers
+- Poorer cache performance
+
+---
+
+## Typical Applications of Stacks
+
+| Application | Why Stack is Suitable |
+|-----------|----------------------|
+| Function call management (call stack) | Tracks active function calls using LIFO |
+| Expression evaluation | Operators and operands processed in reverse order |
+| Parenthesis matching | Last opened parenthesis must be closed first |
+| Undo / Redo operations | Most recent action is reverted first |
+| Depth-First Search (DFS) | Explores the most recent node first |
+| Backtracking algorithms | Easily revert to previous states |
+
+---
+
+## Conclusion
+
+Both array-based and linked-list-based stacks offer efficient O(1) push and pop operations, making them suitable for LIFO-based tasks.
+
+An **array-based stack** is generally preferred when:
+- The maximum size is known or predictable
+- Memory efficiency and cache performance are important
+
+A **linked-list-based stack** is preferred when:
+- The stack size is highly dynamic
+- Resizing overhead must be avoided
+
+In practice, array-based stacks are more commonly used due to their simplicity and performance, while linked-list-based stacks are chosen when flexibility is critical.
+
+---

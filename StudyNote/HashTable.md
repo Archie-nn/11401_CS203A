@@ -22,3 +22,118 @@ A hash table is an abstract data type (ADT) that represents a **key–value map*
 
 Hash tables are widely used due to their fast expected performance for key-based retrieval and updates.
 
+## Hash Function Design
+
+A **hash function** maps a key to an array index:
+
+
+### Goals of a Good Hash Function
+
+| Goal | Meaning |
+|----|--------|
+| Determinism | Same key always maps to the same index |
+| Uniformity | Keys are evenly distributed |
+| Efficiency | Fast to compute |
+| Low Correlation | Small input change → large hash change |
+
+---
+
+### Common Hashing Techniques
+
+| Key Type | Method | Description |
+|-------|-------|------------|
+| Integer | Modulo hashing | `h(x) = x mod m` (choose `m` carefully) |
+| Integer | Multiplicative hashing | Multiply by constant, take high bits |
+| String | Polynomial rolling hash | Combines characters using powers |
+
+---
+
+### Choosing Table Size `m`
+
+| Strategy | Common Choice |
+|--------|--------------|
+| Separate chaining | Prime number |
+| Open addressing | Power of two (needs good bit mixing) |
+
+---
+
+## Collision Resolution Strategies
+
+Let:
+
+---
+
+## Separate Chaining
+
+Each table slot stores a **bucket** (usually a linked list).
+
+### Properties
+
+| Aspect | Description |
+|----|------------|
+| Insert | Add to bucket |
+| Search / Delete | Scan bucket |
+| Expected time | O(1 + α) |
+| Deletion | Simple |
+
+### Pros / Cons
+
+| Pros | Cons |
+|----|----|
+| Handles high load factor well | Extra memory for pointers |
+| Easy deletion | Worse cache locality |
+
+---
+
+## Open Addressing
+
+All elements are stored **directly in the array**.  
+Collisions are resolved by **probing**.
+
+---
+
+### Probing Methods Comparison
+
+| Method | Probe Pattern | Advantages | Drawbacks |
+|-----|-------------|-----------|----------|
+| Linear Probing | `i, i+1, i+2...` | Simple, cache-friendly | Primary clustering |
+| Quadratic Probing | `i+1², i+2²...` | Less primary clustering | Secondary clustering |
+| Double Hashing | `i + k·h₂(key)` | Best distribution | More computation |
+
+---
+
+### Clustering Summary
+
+| Type | Cause | Occurs In |
+|----|-----|----------|
+| Primary clustering | Long contiguous runs | Linear probing |
+| Secondary clustering | Same probe sequence | Quadratic probing |
+| Minimal clustering | Different step sizes | Double hashing |
+
+---
+
+### Deletion in Open Addressing
+
+- Uses **tombstones** to preserve probe chains
+- Table must occasionally be rehashed
+
+---
+
+### Load Factor Guidelines
+
+| Strategy | Recommended α |
+|-------|---------------|
+| Separate chaining | Can exceed 1 |
+| Open addressing | Keep α < 0.7 |
+
+---
+
+## Practical Guidelines
+
+- Use a **well-mixed hash function**
+- Keep load factor under control
+- Prefer **double hashing** when probe length matters
+- Rehash when performance degrades
+
+---
+

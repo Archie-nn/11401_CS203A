@@ -59,10 +59,6 @@ A **hash function** maps a key to an array index:
 
 ## Collision Resolution Strategies
 
-Let:
-
----
-
 ## Separate Chaining
 
 Each table slot stores a **bucket** (usually a linked list).
@@ -136,4 +132,51 @@ Collisions are resolved by **probing**.
 - Rehash when performance degrades
 
 ---
+## Conclusion: Open Addressing vs Separate Chaining
 
+Both **Open Addressing** and **Separate Chaining** are effective collision resolution strategies for hash tables.  
+They achieve similar *average-case* performance, but differ significantly in **memory usage, cache behavior, and practical trade-offs**.
+
+---
+
+## Time Complexity Comparison
+
+| Operation | Separate Chaining | Open Addressing |
+|--------|------------------|----------------|
+| Insert (expected) | O(1 + α) | O(1) (under safe load factor) |
+| Lookup (expected) | O(1 + α) | O(1) |
+| Delete (expected) | O(1 + α) | O(1) (with tombstones) |
+| Worst case | O(n) | O(n) |
+| Resize / Rehash | O(n) (amortized O(1)) | O(n) (amortized O(1)) |
+
+---
+
+## Space Complexity Comparison
+
+| Aspect | Separate Chaining | Open Addressing |
+|-----|------------------|----------------|
+| Table storage | O(m) buckets | O(m) slots |
+| Extra memory | Pointers / node objects | None |
+| Total space | O(m + n) | O(m) ≈ O(n) |
+| Cache locality | Poorer | Better |
+
+---
+
+## Typical Applications
+
+| Use Case | Preferred Strategy | Reason |
+|-------|------------------|-------|
+| Language runtimes (e.g., Python dict) | Open addressing | Cache-friendly, fast lookups |
+| In-memory key-value stores | Open addressing | High performance, low overhead |
+| Systems with frequent deletions | Separate chaining | Simple and reliable deletion |
+| Hash tables with unknown growth | Separate chaining | Handles high load factor well |
+| Educational / simple implementations | Separate chaining | Easier to implement |
+
+---
+
+## Final Takeaway
+
+- **Separate Chaining** is more robust and easier to manage, especially when deletions are frequent or load factor is unpredictable.
+- **Open Addressing** is more memory-efficient and faster in practice, but requires careful control of the load factor and hash quality.
+
+In modern systems, **open addressing** is often preferred for performance-critical workloads, while **separate chaining** remains a solid choice for simplicity and flexibility.

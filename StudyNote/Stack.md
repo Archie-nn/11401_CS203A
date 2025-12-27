@@ -9,4 +9,4 @@
     - **Pop**: Remove the top element.
 
  ## Visualization
-![Stack](./images/stack.wepb)
+![Stack](./images/stack.webp)

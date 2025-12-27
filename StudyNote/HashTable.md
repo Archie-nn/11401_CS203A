@@ -57,9 +57,7 @@ A **hash function** maps a key to an array index:
 
 ---
 
-## Collision Resolution Strategies
-
-## Separate Chaining
+## Separate Chaining:Collision Resolution Strategies
 
 Each table slot stores a **bucket** (usually a linked list).
 
@@ -79,14 +77,11 @@ Each table slot stores a **bucket** (usually a linked list).
 | Handles high load factor well | Extra memory for pointers |
 | Easy deletion | Worse cache locality |
 
----
+## Open Addressing:Collision Resolution Strategies
 
-## Open Addressing
 
 All elements are stored **directly in the array**.  
 Collisions are resolved by **probing**.
-
----
 
 ### Probing Methods Comparison
 
@@ -113,8 +108,6 @@ Collisions are resolved by **probing**.
 - Uses **tombstones** to preserve probe chains
 - Table must occasionally be rehashed
 
----
-
 ### Load Factor Guidelines
 
 | Strategy | Recommended α |
@@ -131,13 +124,10 @@ Collisions are resolved by **probing**.
 - Prefer **double hashing** when probe length matters
 - Rehash when performance degrades
 
----
 ## Conclusion: Open Addressing vs Separate Chaining
 
 Both **Open Addressing** and **Separate Chaining** are effective collision resolution strategies for hash tables.  
 They achieve similar *average-case* performance, but differ significantly in **memory usage, cache behavior, and practical trade-offs**.
-
----
 
 ## Time Complexity Comparison
 

@@ -52,3 +52,74 @@ The queue ADT supports the following operations:
 - **Linked-list-based**
     - **O(n)** nodes.
     - Per-node pointer overhead (typically one `next` pointer), plus **O(1)** for head/tail pointers.
+ 
+| Aspect | Array-based Queue | Linked-list-based Queue |
+|-----|------------------|------------------------|
+| Element Storage | O(n) | O(n) |
+| Extra Overhead | Possible unused capacity | Pointer(s) per node |
+| Memory Layout | Contiguous | Non-contiguous |
+| Overall Space | O(n) | O(n) |
+
+## Variations
+- **Circular queue (ring buffer)**: Array-based queue with wraparound indices to avoid shifting.
+- **Deque (double-ended queue)**: Insert/remove at both front and rear in **O(1)**.
+- **Priority queue**: Removes highest/lowest priority element first (often heap-based; ops typically **O(log n)**).
+- **Bounded queue**: Fixed capacity; enqueue may overflow.
+- **Blocking queue**: `enqueue`/`dequeue` may block until space/data is available (common in producer–consumer).
+- **Queue via two stacks**: Implements FIFO using two LIFO stacks (amortized **O(1)** per operation).
+- **Monotonic queue**: Maintains a monotone order; used for sliding window min/max in **O(n)** total.
+
+## Practical Trade-offs
+
+### Array-based Queue
+**Advantages**
+- Better cache locality
+- Simple and fast with circular array
+- Lower per-element memory overhead
+
+**Disadvantages**
+- Resizing cost
+- Fixed maximum size unless dynamic resizing is used
+
+---
+
+### Linked-list-based Queue
+**Advantages**
+- Dynamic size (no capacity limit)
+- No resizing overhead
+- Stable O(1) enqueue and dequeue
+
+**Disadvantages**
+- Extra memory for pointers
+- Poorer cache performance
+
+---
+
+## Typical Applications of Queues
+
+| Application | Why Queue is Suitable |
+|-----------|----------------------|
+| CPU scheduling | Processes are handled in arrival order |
+| Task scheduling systems | Jobs are executed FIFO |
+| Breadth-First Search (BFS) | Nodes are visited level by level |
+| Print queue | Documents are printed in order |
+| Message buffering | Data processed in arrival order |
+| I/O buffering | Smooths data transfer rates |
+
+---
+
+## Conclusion
+
+Both array-based and linked-list-based queues efficiently support FIFO operations with O(1) enqueue and dequeue.
+
+An **array-based queue** is preferred when:
+- The maximum queue size is predictable
+- Cache efficiency and memory locality are important
+- A circular buffer can be used
+
+A **linked-list-based queue** is preferred when:
+- Queue size is highly dynamic
+- Resizing overhead must be avoided
+- Memory fragmentation is not a concern
+
+In practice, array-based queues are commonly used for fixed-size or high-performance systems, while linked-list-based queues are chosen for flexible, dynamically sized workloads.

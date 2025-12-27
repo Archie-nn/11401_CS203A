@@ -57,6 +57,7 @@ The stack ADT supports the following operations:
 - **Linked-list-based**
     - **O(n)** nodes.
     - Additional per-element pointer overhead (e.g., one `next` pointer per node).
+  
 | Aspect | Array-based Stack | Linked-list-based Stack |
 |-----|------------------|------------------------|
 | Element Storage | O(n) | O(n) |

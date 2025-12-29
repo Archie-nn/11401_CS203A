@@ -37,7 +37,6 @@ A consequence: the number of vertices with **odd degree** is **even**.
 ## Visualization
 
 ![Graph](./graph.webp)
-```
 
 ## Representation
 - **Adjacency Matrix**: 2D array where matrix[i][j] indicates edge between vertex i and j

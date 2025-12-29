@@ -36,6 +36,6 @@ A consequence: the number of vertices with **odd degree** is **even**.
 
 ## Visualization
 
-![Graph](./graph.wepb)
+![Graph](./graph.webp)
 ```
 

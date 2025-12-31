@@ -10,5 +10,4 @@ This study note offers a comprehensive overview of fundamental data structures. 
 - [Queue](./Queue.md): Comparison between Tree and Graph
 - [Hash Table](./HashTable.md): Deep dive into hash tables, hashing algorithms, and collision handling strategies.
 - [Tree](./Tree.md): Complete overview of tree structures, various types, and traversal algorithms.
-- [Heap](./Heap.md): Detailed study of heap data structure, min/max heaps, and priority queue implementations.
 - [Graph](./Graph.md): Foundation of graph theory, representation methods, and fundamental algorithms.
